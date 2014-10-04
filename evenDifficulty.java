@@ -1,43 +1,37 @@
 public class evenDifficulty{
-	String[] names;
-	String[] chores;
-	int[] difficulties;
 	String[][] assignment;
-	public void Names(int num){
-		names=new String[num];
-	}
-	public void Chores(int num){
-		chores=new String[num];
-	}
-	public void Difficulties(int num){
-		difficulties=new int[num];
-	}
-	public void assignChore(String[] names, String chores, int[] difficulties){
-		double averageDiff=difficulties.sum()/difficulties.length();
-		for (int n : names.length()){
-			assignment[n][1]=Names(n);
-			assignment[n][2]=Chores(n);
-			assignment[n][3]=Difficulties(n);
-			difficulties(n)=0;
-			chores[n]=null;
+
+	public void assignChore(String[] names, String[] chores, int[] difficulties) {
+		int diffsum = 0;
+		for (int i = 0; i < difficulties.length; i++)
+			diffsum += difficulties[i];
+		double averageDiff = diffsum / difficulties.length;
+		for (int n = 0 ; n < names.length; n++) {
+			assignment[n][0] = names[n];
+			assignment[n][1] = chores[n];
+			int temp = difficulties[n];
+			String converted = Integer.toString(temp);
+			assignment[n][2] = converted;
+			difficulties[n] = 0;
+			chores[n] = null;
 		}
-		while (chores.length()>names.length()){
-			array=quicksort(assignment);
-			newdiff[n][2]=descendSort(chores,difficulties);
-			for (n=1:names.length()){
-				array[n][2]=array[n][2]+newdiff[n][1];
-				array[n][3]=array[n][3]+newdiff[n][2];
+
+		while (chores.length > names.length){
+			String[][] array = quickSort(assignment);
+			String[][] newdiff;
+			newdiff = descendSort(chores, difficulties);
+			for (int n = 0; n < names.length; n++){
+				array[n][1] = array[n][1] + newdiff[n][0];
+				array[n][2] = array[n][2] + newdiff[n][1];
 			}
-			assignment=array;
-			names=assignment[n][1];
-			chores=assignment[n][2];
-			difficulties=assignment[n][3];
+
+			for (int n = 0 ; n < names.length; n++) {
+				names[n] = assignment[n][0];
+				chores[n] = assignment[n][1];
+				String temp = assignment[n][2];
+				int converted = Integer.parseInt(temp);
+				difficulties[n] = converted;
+			}
 		}
-	}
-	public void quickSort(){
-
-	}
-	public void descendSort(){
-
 	}
 }
