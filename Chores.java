@@ -1,5 +1,10 @@
 public class Chores{
+  String[] chores;
   Chores(int num){
-    String[] chores = new String[num];
+    chores = new String[num];
+  }
+  
+  public void addchore(int num, String name){
+    chores[num] = name;
   }
 }
