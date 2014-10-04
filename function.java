@@ -17,7 +17,7 @@ public class function{
       System.out.println("Input chore name: ");
       cName = input.nextLine();
       System.out.println("Input chore difficulty: ");
-      dNum = input.nextLine();
+      dNum = input.nextInt();
       myChores.put(cName, dNum);
     }
      
