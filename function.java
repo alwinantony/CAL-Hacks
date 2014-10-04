@@ -1,13 +1,13 @@
 import java.util.Scanner;
-public class main(
+public class function(
   public static void main(String[] args){
     Scanner input = new Scanner(System.in);
     System.out.println("Input number of chores: ");
     int choresnum = input.nextInt();
-    Chores(choresnum);
+    Chores chores = new Chores(choresnum);
     System.out.println("Input number of people: ");
     int peoplenum = input.nextInt();
-    People(peoplenum);
+    People people = new People(peoplenum);
     
     System.out.println("Enter names of chores: ");
     for (int i = 0; i < choresnum; i++)
