@@ -1,5 +1,10 @@
 public class People{
+  String[] people;
   People(int num){
-    String[] people = new String[num];
+    people = new String[num];
+  }
+  
+  public void addppl(int num, String name){
+    people[num] = name;
   }
 }
